@@ -7,7 +7,7 @@ import closeIcon from '../../icons/closeIcon.png';
 //css
 import './InfoBar.css';
 
-const InfoBar = () => {
+const InfoBar = ({ room }) => {
     return (
         <div className="infoBar">
         <div className="leftInnerContainer">
