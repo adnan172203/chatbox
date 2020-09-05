@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import io from 'socket.io-client';
 
 import InfoBar from '../InfoBar/InfoBar';
+import Input from '../Input/Input';
 
 import './Chat.css';
 
@@ -41,10 +42,23 @@ const Chat = ({ location }) => {
     });
   }, []);
 
+  const sendMessage = (event) => {
+    event.preventDefault();
+
+    if (message) {
+      socket.emit('sendMessage', message, () => setMessage(''));
+    }
+  };
+
   return (
     <div className='outerContainer'>
       <div className='container'>
         <InfoBar room={room} />
+        <Input
+          message={message}
+          setMessage={setMessage}
+          sendMessage={sendMessage}
+        />
       </div>
     </div>
   );
