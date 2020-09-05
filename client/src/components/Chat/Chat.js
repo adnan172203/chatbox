@@ -37,15 +37,13 @@ const Chat = ({ location }) => {
     socket.on('message', (message) => {
       setMessages((messages) => [...messages, message]);
     });
-
-    socket.on('roomData', ({ users }) => {
-      setUsers(users);
-    });
   }, []);
 
   return (
-    <div>
-      <h1>Chat</h1>
+    <div className='outerContainer'>
+      <div className='container'>
+ 
+      </div>
     </div>
   );
 };
